@@ -1,0 +1,21 @@
+[
+    {
+        "id": "1",
+        "nombre": "Administrador",
+        "permisos": [
+            "Crear productos",
+            "Editar productos",
+            "Eliminar productos",
+            "Ver reportes"
+        ]
+    },
+    {
+        "id": "2",
+        "nombre": "Vendedor",
+        "permisos": [
+            "Realizar ventas",
+            "Ver productos",
+            "Ver pedidos"
+        ]
+    }
+]

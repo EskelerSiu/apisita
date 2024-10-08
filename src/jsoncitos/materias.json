@@ -1,0 +1,16 @@
+[
+    {
+        "id": "1",
+        "nombre": "Harina Integral",
+        "cantidad_disponible": "500 kg",
+        "proveedor": "Harinas del Sur",
+        "precio_unitario": "1.0"
+    },
+    {
+        "id": "2",
+        "nombre": "Harina Blanca",
+        "cantidad_disponible": "700 kg",
+        "proveedor": "Molinos del Norte",
+        "precio_unitario": "0.8"
+    }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "nombre": "Pan Integral",
+    "descripcion": "Pan de harina integral",
+    "precio": "2.5",
+    "cantidad_disponible": "100"
+  },
+  {
+    "id": "2",
+    "nombre": "Pan Blanco",
+    "descripcion": "Pan tradicional de harina refinada",
+    "precio": "2.0",
+    "cantidad_disponible": "150"
+  }
+]

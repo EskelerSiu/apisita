@@ -1,18 +1,22 @@
-{
+  {
   "name": "api",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "start": "node src/index.js",
+    "dev": "npx nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@faker-js/faker": "^9.0.3",
     "express": "^4.21.0",
     "morgan": "^1.10.0",
+    "mysql2": "^3.11.3",
     "node-fetch": "^3.3.2",
+    "sequelize": "^6.37.4",
     "underscore": "^1.13.7"
   },
   "devDependencies": {
