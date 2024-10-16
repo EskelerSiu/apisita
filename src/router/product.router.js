@@ -72,7 +72,7 @@ router.delete("/:product_id", async (req, res) => {
     });
     res.status(200).json({
         ok: true,
-        status: 204,
+        status: 200,
         body: deleteProduct,
     });
 });

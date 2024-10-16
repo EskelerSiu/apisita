@@ -69,9 +69,9 @@ router.delete("/:materia_prima_id", async (req, res) => {
             materia_prima_id: id,
         },
     });
-    res.status(204).json({
+    res.status(200r).json({
         ok: true,
-        status: 204,
+        status: 200,
         body: deleteMateriaPrima,
     });
 });

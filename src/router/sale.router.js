@@ -65,9 +65,9 @@ router.delete("/:venta_id", async (req, res) => {
             venta_id: id,
         },
     });
-    res.status(204).json({
+    res.status(200).json({
         ok: true,
-        status: 204,
+        status: 200,
         body: deleteVenta,
     });
 });

@@ -1,9 +1,9 @@
 const { Sequelize, Model, DataTypes } = require("sequelize");
 
-const sequelize = new Sequelize("hola", "root", "12345", {
+const sequelize = new Sequelize("hola", "admin", "12345", {
     host: "localhost",
-    dialect: "mysql",
-    port: 3306,
+    dialect: "postgres",
+    port: 5432,
 });
 
 class Rol extends Model {}
@@ -23,7 +23,9 @@ Rol.init(
     {
         sequelize,
         modelName: "Role",
+        tableName: "roles",
         timestamps: false,
+        schema: "hola"
     }
 );
 

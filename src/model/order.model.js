@@ -1,9 +1,9 @@
 const { Sequelize, Model, DataTypes } = require("sequelize");
 
-const sequelize = new Sequelize("hola", "root", "12345", {
+const sequelize = new Sequelize("hola", "admin", "12345", {
     host: "localhost",
-    dialect: "mysql",
-    port: 3306,
+    dialect: "postgres",
+    port: 5432,
 });
 
 class Pedido extends Model {}
@@ -35,7 +35,9 @@ Pedido.init(
     {
         sequelize,
         modelName: "Pedido",
+        tableName: "pedidos",
         timestamps: false,
+        schema: "hola"
     }
 );
 

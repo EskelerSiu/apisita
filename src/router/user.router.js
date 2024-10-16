@@ -69,9 +69,9 @@ router.delete("/:usuario_id", async (req, res) => {
             usuario_id: id,
         },
     });
-    res.status(204).json({
+    res.status(200).json({
         ok: true,
-        status: 204,
+        status: 200,
         body: deleteUsuario,
     });
 });
