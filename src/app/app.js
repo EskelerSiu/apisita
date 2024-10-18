@@ -13,6 +13,7 @@ const app = express();
 
 // Middleware de Morgan para el logging de peticiones
 app.use(morgan("dev"));
+app.use(express.urlencoded({extended: false}));
 
 // Ruta principal para verificar que el servidor está funcionando
 app.get("/", (req, res) => {
@@ -29,6 +30,12 @@ app.use("/api/materia_primas", materiaPrimaRouter);
 app.use("/api/ventas", ventaRouter);
 app.use("/api/roles", rolRouter);
 app.use("/api/products", productoRouter);
+
+app.post('/auth', (req, res)=> {
+    const {username, password} = req.body;
+
+    
+});
 
 // Exportar la aplicación
 module.exports = app;
