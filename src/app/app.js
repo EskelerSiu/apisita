@@ -60,7 +60,7 @@ app.get('/login', (req, res) => {
                 </head>
                 <body>
                     <form method="POST" action="/auth">
-                        Nombre de usuario: <input type="text" name="text"><br/>
+                        Nombre de usuario: <input type="text" name="username"><br/>
                         Contraseña: <input type="password" name="password"><br/>
                         <input type="submit" value="Iniciar sesión"/>
                     </form>
