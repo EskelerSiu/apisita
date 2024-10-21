@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const morgan = require("morgan");
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 const Usuario = require('../model/user.model');
 
 // Importar todos los routers
@@ -87,7 +88,7 @@ app.post('/auth', async (req, res) => {
         }
 
         // Verificar si la contraseña es correcta
-        const validPassword = (password === user.password);
+        const validPassword = await bcrypt.compare(password, user.password);
         if (!validPassword) {
             return res.status(401).json({
                 message: 'Contraseña incorrecta'
