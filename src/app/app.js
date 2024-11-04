@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const Usuario = require('../model/user.model');
+const cors = require('cors');
 
 // Importar todos los routers
 const userRouter = require("../router/user.router");
@@ -12,12 +13,19 @@ const materiaPrimaRouter = require("../router/materia.router");
 const ventaRouter = require("../router/sale.router");
 const rolRouter = require("../router/rol.router");
 const productoRouter = require("../router/product.router");
+const { methods } = require('underscore');
 
 const app = express();
 
 // Middleware de Morgan para el logging de peticiones
+app.use(cors(corsOptions))
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
+
+const corsOptions ={
+    origin:["http://www.apisita.com"],
+    methods:["OPTIONS","GET","POST","PUT","DELETE"]
+};
 
 // Ruta principal para verificar que el servidor está funcionando
 app.get("/", (req, res) => {
