@@ -17,15 +17,18 @@ const { methods } = require('underscore');
 
 const app = express();
 
+const corsOptions ={
+    origin:"https://p0lm948h-4200.usw3.devtunnels.ms",
+    methods:["OPTIONS","GET","POST","PUT","DELETE"],
+    allowedHeaders:["Content-Type", "Authorization"],
+    credentials: true
+};
+
 // Middleware de Morgan para el logging de peticiones
 app.use(cors(corsOptions))
+app.options('*',cors(corsOptions))
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
-
-const corsOptions ={
-    origin:["http://www.apisita.com"],
-    methods:["OPTIONS","GET","POST","PUT","DELETE"]
-};
 
 // Ruta principal para verificar que el servidor está funcionando
 app.get("/", (req, res) => {
@@ -68,7 +71,7 @@ app.get('/login', (req, res) => {
                 </head>
                 <body>
                     <form method="POST" action="/auth">
-                        Nombre de usuario: <input type="text" name="username"><br/>
+                        Nombre de usuario: <input type="text" name="correo"><br/>
                         Contraseña: <input type="password" name="password"><br/>
                         <input type="submit" value="Iniciar sesión"/>
                     </form>
@@ -78,13 +81,13 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/auth', async (req, res) => {
-    const { username, password } = req.body;
+    const { correo, password } = req.body;
 
     try {
         // Buscar al usuario en la base de datos
         const user = await Usuario.findOne({
             where: {
-                nombre: username
+                email: correo
             }
         });
 
@@ -96,8 +99,7 @@ app.post('/auth', async (req, res) => {
         }
 
         // Verificar si la contraseña es correcta
-        const validPassword = await bcrypt.compare(password, user.password);
-        if (!validPassword) {
+        if (password !== user.password) {
             return res.status(401).json({
                 message: 'Contraseña incorrecta'
             });
