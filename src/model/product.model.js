@@ -1,6 +1,6 @@
 const { Sequelize, Model, DataTypes } = require("sequelize");
 
-const sequelize = new Sequelize("hola", "admin", "12345", {
+const sequelize = new Sequelize("apisita", "postgres", "12345", {
     host: "localhost",
     dialect: "postgres",
     port: 5432,
@@ -11,8 +11,8 @@ class Product extends Model {}
 Product.init(
     {
         product_id: {
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV4,
+            type: DataTypes.INTEGER, // Usamos INTEGER en lugar de UUID
+            autoIncrement: true, // Auto-incremental
             primaryKey: true,
         },
         product_name: {
@@ -20,7 +20,7 @@ Product.init(
             allowNull: false,
         },
         price: {
-            type: DataTypes.FLOAT(10, 2),
+            type: DataTypes.NUMERIC(10, 2), // Usamos NUMERIC para el precio
             allowNull: false,
         },
         is_stock: {
@@ -30,9 +30,9 @@ Product.init(
     {
         sequelize,
         modelName: "Product",
-        tableName: "products",
+        tableName: "productos",
         timestamps: false,
-        schema: "hola" 
+        schema: "apisita" 
     }
 );
 

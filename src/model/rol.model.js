@@ -1,6 +1,6 @@
 const { Sequelize, Model, DataTypes } = require("sequelize");
 
-const sequelize = new Sequelize("hola", "admin", "12345", {
+const sequelize = new Sequelize("apisita", "postgres", "12345", {
     host: "localhost",
     dialect: "postgres",
     port: 5432,
@@ -11,8 +11,8 @@ class Rol extends Model {}
 Rol.init(
     {
         rol_id: {
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV4,
+            type: DataTypes.INTEGER, // Usamos INTEGER en lugar de UUID
+            autoIncrement: true, // Auto-incremental
             primaryKey: true,
         },
         nombre: {
@@ -25,7 +25,7 @@ Rol.init(
         modelName: "Role",
         tableName: "roles",
         timestamps: false,
-        schema: "hola"
+        schema: "apisita"
     }
 );
 

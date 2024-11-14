@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require("express");
 const morgan = require("morgan");
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
 const Usuario = require('../model/user.model');
 const cors = require('cors');
 
@@ -122,7 +121,7 @@ app.post('/auth', async (req, res) => {
 });
 
 function generateAccessToken(user) {
-    return jwt.sign(user, process.env.SECRET, { expiresIn: '5m' });
+    return jwt.sign(user, process.env.SECRET, { expiresIn: '30m' });
 }
 
 function validateToken(req, res, next) {
