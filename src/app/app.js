@@ -17,7 +17,7 @@ const { methods } = require('underscore');
 const app = express();
 
 const corsOptions ={
-    origin:"https://p0lm948h-4200.usw3.devtunnels.ms",
+    origin:"192.168.132.131",
     methods:["OPTIONS","GET","POST","PUT","DELETE"],
     allowedHeaders:["Content-Type", "Authorization"],
     credentials: true
